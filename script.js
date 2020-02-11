@@ -24,7 +24,7 @@ $(document).on("click", "#searchButton", function(){
 
 function getWeather(city){
 
-    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2f13881ffe862b42e36007854de27a99&untis=imperial"
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=2f13881ffe862b42e36007854de27a99&units=imperial"
 
     $.ajax({
         url: queryURL,

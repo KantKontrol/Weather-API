@@ -39,13 +39,13 @@ function getWeather(city){
         let lat = response.coord.lat;
         let lon = response.coord.lon;
 
-        getUV(weatherToday, lat, lon);
+        getUV(weatherToday, lat, lon, city);
 
     });
 
 }
 
-function getUV(weatherToday, lat, lon){
+function getUV(weatherToday, lat, lon, city){
 
     let queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=2f13881ffe862b42e36007854de27a99&lat=" + lat + "&lon=" + lon;
 
@@ -54,13 +54,62 @@ function getUV(weatherToday, lat, lon){
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        console.log(response)
 
         let uvIndex = response.value;
         let date = response.date_iso;
 
         currentWeather(weatherToday, uvIndex, date);
+        getForecast(city);
     });
+}
+
+function getForecast(city){
+
+    let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=2f13881ffe862b42e36007854de27a99";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+
+    }).then(function(response){
+
+        
+
+        for(let i = 0;i < response.list.length;i+=8){
+            console.log(response.list[i]);
+        }
+
+
+    });
+}
+
+function createForecastCard(forecastData){
+
+ 
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+
+
+    let card = $("<div>").attr({"class": "card", "style": "width: 18rem;"})
+
+    let cardBody = $("<div>").addClass("card-body");
+    cardBody.appenedTo(card);
+
+    let cardTitle = $("<div>").addClass("card-title").html((forecastData.dt_txt).substring(0, 9));
+    cardTitle.appenedTo(cardBody);
+
+    let weatherIcon = $("<img>");
+    weatherIcon.appenedTo(cardBody);
+
+    let tempText = $("<p>").addClass("card-text").html(forecastData.main.temp + "F");
+    tempText.appenedTo(cardBody);
+
+    let humidityText = $("<p>").addClass("card-text").html(forecastData.main.humidity + "%");
+    humidityText.appenedTo(cardBody);
+
+
+
 }
 
 function currentWeather(response, uvIndex, date){

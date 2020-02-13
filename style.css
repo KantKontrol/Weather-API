@@ -1,0 +1,7 @@
+.card{
+    display: flex;
+    float:left;
+    width: max-content;
+    margin: 5px;
+    justify-content: center;
+}

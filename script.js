@@ -65,7 +65,7 @@ function getUV(weatherToday, lat, lon, city){
 
 function getForecast(city){
 
-    let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=2f13881ffe862b42e36007854de27a99";
+    let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=2f13881ffe862b42e36007854de27a99&units=imperial";
 
     $.ajax({
         url: queryURL,
@@ -77,6 +77,7 @@ function getForecast(city){
 
         for(let i = 0;i < response.list.length;i+=8){
             console.log(response.list[i]);
+            createForecastCard(response.list[i]);
         }
 
 
@@ -85,30 +86,25 @@ function getForecast(city){
 
 function createForecastCard(forecastData){
 
- 
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
 
-
-    let card = $("<div>").attr({"class": "card", "style": "width: 18rem;"})
+    let card = $("<div>").attr({"class": "card"});
 
     let cardBody = $("<div>").addClass("card-body");
-    cardBody.appenedTo(card);
+    card.append(cardBody);
 
-    let cardTitle = $("<div>").addClass("card-title").html((forecastData.dt_txt).substring(0, 9));
-    cardTitle.appenedTo(cardBody);
+    let cardTitle = $("<div>").addClass("card-title").html((forecastData.dt_txt).substring(0, 10));
+    cardBody.append(cardTitle);
 
     let weatherIcon = $("<img>");
-    weatherIcon.appenedTo(cardBody);
+    cardBody.append(weatherIcon);
 
-    let tempText = $("<p>").addClass("card-text").html(forecastData.main.temp + "F");
-    tempText.appenedTo(cardBody);
+    let tempText = $("<p>").addClass("card-text").html(forecastData.main.temp + " F");
+    cardBody.append(tempText);
 
     let humidityText = $("<p>").addClass("card-text").html(forecastData.main.humidity + "%");
-    humidityText.appenedTo(cardBody);
+    cardBody.append(humidityText);
 
-
+    $("#weeklyForecast").append(card);
 
 }
 

@@ -34,6 +34,8 @@ function getWeather(city){
         method: "GET"
     }).then(function(response){
 
+        console.log(response);
+
         weatherToday = response;
 
         let lat = response.coord.lat;
@@ -71,16 +73,11 @@ function getForecast(city){
         url: queryURL,
         method: "GET"
 
-    }).then(function(response){
-
-        
+    }).then(function(response){ 
 
         for(let i = 0;i < response.list.length;i+=8){
-            console.log(response.list[i]);
             createForecastCard(response.list[i]);
         }
-
-
     });
 }
 
@@ -95,7 +92,9 @@ function createForecastCard(forecastData){
     let cardTitle = $("<div>").addClass("card-title").html((forecastData.dt_txt).substring(0, 10));
     cardBody.append(cardTitle);
 
-    let weatherIcon = $("<img>");
+    let iconId = forecastData.weather[0].icon;
+
+    let weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/w/" + iconId + ".png");
     cardBody.append(weatherIcon);
 
     let tempText = $("<p>").addClass("card-text").html(forecastData.main.temp + " F");
@@ -111,7 +110,8 @@ function createForecastCard(forecastData){
 function currentWeather(response, uvIndex, date){
 
     $("#cityTag").html(response.name + " (" + date + ")");
-    $("#iconTag").html();
+    let iconId = response.weather[0].icon;
+    $("#iconTag").html($("<img>").attr("src", "http://openweathermap.org/img/w/" + iconId + ".png"));
     $("#tempTag").html("Temperature: " + response.main.temp + " F");
     $("#humidityTag").html("Humidity: " + response.main.humidity);
     $("#windSpeed").html("Wind Speed: " + response.wind.speed + "mph");

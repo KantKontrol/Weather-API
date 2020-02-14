@@ -23,7 +23,12 @@ $(document).on("click", "#searchButton", function(){
     saveSearch(city);
 
     getWeather(city);
-})
+});
+
+document.on("click", ".savedEntry", function(){
+
+
+});
 
 
 function getWeather(city){
@@ -153,7 +158,7 @@ function createSavedSearchs(searches){
     $("#recentSearches").empty();
 
     for(let i= 0; i < searches.length;i++){
-        let savedItem = $("<div>").addClass("savedEntry").html(searches[i]);
+        let savedItem = $("<div>").addClass("savedEntry").attr("id", searches[i]).html(searches[i]);
 
         $("#recentSearches").append(savedItem);
     }

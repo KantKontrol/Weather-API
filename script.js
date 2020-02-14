@@ -119,7 +119,7 @@ function saveSearch(newSearch){
 
     let searches = loadSearch();
 
-    searches.push(newSearch);
+    searches.unshift(newSearch);
 
     localStorage.setItem("weatherSearches", JSON.stringify(searches));
 

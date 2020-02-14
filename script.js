@@ -1,19 +1,3 @@
-/* City
-
-* Date
-
-* Icon image (visual representation of weather conditions)
-
-* Temperature
-
-* Humidity
-
-* Wind speed
-
-* UV index*/
-
-//weather api key: 2f13881ffe862b42e36007854de27a99
-
 loadSearch();
 
 $(document).on("click", "#searchButton", function(){
@@ -25,9 +9,10 @@ $(document).on("click", "#searchButton", function(){
     getWeather(city);
 });
 
-document.on("click", ".savedEntry", function(){
+$(document).on("click", ".savedEntry", function(){
 
-
+    let city = $(this).attr("id");
+    getWeather(city);
 });
 
 
@@ -83,6 +68,8 @@ function getForecast(city){
         method: "GET"
 
     }).then(function(response){ 
+
+        $("#weeklyForecast").empty();
 
         for(let i = 0;i < response.list.length;i+=8){
             createForecastCard(response.list[i]);

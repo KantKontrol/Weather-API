@@ -14,6 +14,8 @@
 
 //weather api key: 2f13881ffe862b42e36007854de27a99
 
+loadSearch();
+
 $(document).on("click", "#searchButton", function(){
 
     let city = $("#citySearch").val();
@@ -129,15 +131,31 @@ function saveSearch(newSearch){
 
     localStorage.setItem("weatherSearches", JSON.stringify(searches));
 
+    loadSearch();
+
 }
 
 function loadSearch(){
 
-    let searches = JSON.parse(window.localStorage.getItem("weatherSearches"));
+     let searches = JSON.parse(window.localStorage.getItem("weatherSearches"));
+
+     if(searches == null){
+        searches = [];
+     }
+
+    createSavedSearchs(searches);
 
     return searches;
 }
 
-function createSavedSearch(){
-    
+function createSavedSearchs(searches){
+
+    $("#recentSearches").empty();
+
+    for(let i= 0; i < searches.length;i++){
+        let savedItem = $("<div>").addClass("savedEntry").html(searches[i]);
+
+        $("#recentSearches").append(savedItem);
+    }
+
 }

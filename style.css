@@ -1,3 +1,11 @@
+body{
+    background-image: url(assets/img/prism.png);
+}
+
+.mainContent{
+    border: 2px solid #4aaaa5;
+}
+
 .card{
     display: flex;
     float:left;

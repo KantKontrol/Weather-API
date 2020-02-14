@@ -7,6 +7,14 @@
 }
 
 .savedEntry {
-    background-color: gray;
+    background-color: #1d1616;
+    color: #4aaaa5;
     width: 100%;
+    text-align: center;
+}
+
+.savedEntry:hover{
+    background-color: #2a2424;
+    border-right: 2px solid #4aaaa5;
+    border-left: 2px solid #4aaaa5;
 }

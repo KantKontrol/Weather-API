@@ -5,3 +5,8 @@
     margin: 5px;
     justify-content: center;
 }
+
+.savedEntry {
+    background-color: gray;
+    width: 100%;
+}

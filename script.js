@@ -18,6 +18,8 @@ $(document).on("click", "#searchButton", function(){
 
     let city = $("#citySearch").val();
 
+    saveSearch(city);
+
     getWeather(city);
 })
 
@@ -117,4 +119,25 @@ function currentWeather(response, uvIndex, date){
     $("#windSpeed").html("Wind Speed: " + response.wind.speed + "mph");
     $("#uvIndex").html("UV Index: " + uvIndex);
 
+}
+
+function saveSearch(newSearch){
+
+    let searches = loadSearch();
+
+    searches.push(newSearch);
+
+    localStorage.setItem("weatherSearches", JSON.stringify(searches));
+
+}
+
+function loadSearch(){
+
+    let searches = JSON.parse(window.localStorage.getItem("weatherSearches"));
+
+    return searches;
+}
+
+function createSavedSearch(){
+    
 }

@@ -43,7 +43,6 @@ function getWeather(city){
         getUV(weatherToday, lat, lon, city);
 
     });
-
 }
 
 function getUV(weatherToday, lat, lon, city){

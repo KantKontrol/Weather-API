@@ -14,16 +14,21 @@
         <h1 class="navbar-brand" href="#">Weather API</h1>
     </nav>
 
-    <div class="container-md topMargin">
+    <div class="container-md topMargin botMargin">
 
         <div class="row">
 
             <div class="col-sm-3 ">
 
-                <div class="mainColor padding cusBorder">
+                <div class="mainColor padding cusBorder botMargin">
                     <h3 class="mainTextColor">Search for a City</h3>
-                    <input id="citySearch" size="15">
-                    <button class="mainColor mainTextColor cusBorder" id="searchButton">Search</button>
+
+                    <div class="input-group mb-3">
+                        <input type="text" id="citySearch" class="form-control" placeholder="City" aria-label="City" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                          <button id="searchButton" class="mainColor mainTextColor cusBorder" type="button" id="button-addon2">Search</button>
+                        </div>
+                    </div>
 
                     <div class="line"></div>
 

@@ -64,6 +64,10 @@ button:active{
     margin-top: 10px;
 }
 
+.botMargin{
+    margin-bottom: 10px;
+}
+
 .line{
     display:block;
     height: 1px;

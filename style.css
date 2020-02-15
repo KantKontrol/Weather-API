@@ -9,6 +9,15 @@ body{
     flex-direction: column; 
 }
 
+button:hover{
+    opacity: .8;
+}
+
+button:active{
+    background-color: indigo;
+}
+
+
 .container-md{
     flex: 1 0 auto; 
 }
@@ -54,7 +63,6 @@ body{
 .topMargin{
     margin-top: 10px;
 }
-
 
 .line{
     display:block;

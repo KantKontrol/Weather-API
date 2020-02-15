@@ -9,6 +9,11 @@ $(document).on("click", "#searchButton", function(){
     getWeather(city);
 });
 
+$(document).on("click", "#clearSearch", function(){
+
+    clearSearches();
+});
+
 $(document).on("click", ".savedEntry", function(){
 
     let city = $(this).attr("id");
@@ -80,7 +85,7 @@ function getForecast(city){
 function createForecastCard(forecastData){
 
 
-    let card = $("<div>").attr({"class": "card"});
+    let card = $("<div>").attr({"class": "card cusBorder mainColor"});
 
     let cardBody = $("<div>").addClass("card-body");
     card.append(cardBody);
@@ -96,7 +101,7 @@ function createForecastCard(forecastData){
     let tempText = $("<p>").addClass("card-text").html(forecastData.main.temp + " F");
     cardBody.append(tempText);
 
-    let humidityText = $("<p>").addClass("card-text").html(forecastData.main.humidity + "%");
+    let humidityText = $("<p>").addClass("card-text").html(forecastData.main.humidity + "% RH");
     cardBody.append(humidityText);
 
     $("#weeklyForecast").append(card);
@@ -109,7 +114,7 @@ function currentWeather(response, uvIndex, date){
     let iconId = response.weather[0].icon;
     $("#iconTag").html($("<img>").attr("src", "http://openweathermap.org/img/w/" + iconId + ".png"));
     $("#tempTag").html("Temperature: " + response.main.temp + " F");
-    $("#humidityTag").html("Humidity: " + response.main.humidity);
+    $("#humidityTag").html("Humidity: " + response.main.humidity + " %");
     $("#windSpeed").html("Wind Speed: " + response.wind.speed + "mph");
     $("#uvIndex").html("UV Index: " + uvIndex);
 
@@ -125,6 +130,12 @@ function saveSearch(newSearch){
 
     loadSearch();
 
+}
+
+function clearSearches(){
+    let searches = [];
+    localStorage.setItem("weatherSearches", JSON.stringify(searches));
+    $("#recentSearches").empty();
 }
 
 function loadSearch(){

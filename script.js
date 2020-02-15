@@ -94,7 +94,7 @@ function createForecastCard(forecastData){
 
     let iconId = forecastData.weather[0].icon;
 
-    let weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/w/" + iconId + ".png");
+    let weatherIcon = $("<img>").attr("src", "https://openweathermap.org/img/w/" + iconId + ".png");
     cardBody.append(weatherIcon);
 
     let tempText = $("<p>").addClass("card-text").html(forecastData.main.temp + " F");

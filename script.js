@@ -57,7 +57,7 @@ function getUV(weatherToday, lat, lon, city){
     }).then(function(response){
 
         let uvIndex = response.value;
-        let date = response.date_iso;
+        let date = (response.date_iso).substring(0, 10);
 
         currentWeather(weatherToday, uvIndex, date);
         getForecast(city);

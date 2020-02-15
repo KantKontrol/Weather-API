@@ -51,6 +51,20 @@ button:active{
     background-color: indigo;
 }
 
+.inputStyle{
+    background-color: #1d1616;
+    color: #4aaaa5;
+}
+
+.inputStyle:focus{
+    background-color: #1d1616;
+    color: #4aaaa5;
+}
+
+.inputStyle::placeholder{
+    color: #4aaaa5;
+}
+
 .navbar {
     justify-content: center;
     border-bottom: 4px solid #4aaaa5;

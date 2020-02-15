@@ -1,5 +1,16 @@
+html, body {
+    height: 100%;
+}
+
 body{
     background-image: url(assets/img/prism.png);
+    margin: 0px;
+    display: flex;
+    flex-direction: column; 
+}
+
+.container-md{
+    flex: 1 0 auto; 
 }
 
 .mainContent{
@@ -36,6 +47,51 @@ body{
     background-color: #1d1616;
 }
 
+.padding{
+    padding:10px;
+}
+
+.topMargin{
+    margin-top: 10px;
+}
+
+
+.line{
+    display:block;
+    height: 1px;
+    width: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #4aaaa5;
+}
+
+.cusBorder{
+    border: 2px solid #4aaaa5;
+}
+
 .mainTextColor{
+    color: #4aaaa5;
+}
+
+/* everything below styles the footer */
+footer {
+    border-top: 8px solid #4aaaa5;
+    background-color: #1d1616;
+    height: 50px;
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+#footerText {
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    font-weight: bold;
+    width: max-content;
+    height: 15px;
     color: #4aaaa5;
 }

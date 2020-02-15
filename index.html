@@ -14,42 +14,50 @@
         <h1 class="navbar-brand" href="#">Weather API</h1>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-md topMargin">
 
         <div class="row">
 
-            <div class="col-sm-3">
+            <div class="col-sm-3 ">
 
-                <div class="mainColor">
+                <div class="mainColor padding cusBorder">
                     <h3 class="mainTextColor">Search for a City</h3>
-                    <input id="citySearch">
+                    <input id="citySearch" size="15">
                     <button id="searchButton">Search</button>
-                </div>
 
-                <div id="recentSearches"></div>
+                    <div class="line"></div>
+
+                    <div id="recentSearches"></div>
+
+                    <div class="line"></div>
+
+                    <button id="clearSearch">Clear Searches</button>
+                </div>
 
             </div>
 
-            <div class="col-sm-9">
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-8 mainColor cusBorder">
 
                 <div class="row">
-                    <div class="col-sm-8">
-                        <div class="mainTextColor">                        
-                            <h1>Current Weather Conditions</h1>
-                            <h5 id="cityTag"></h5>
+                    <div class="col-sm-12">
+                        <div class="mainTextColor mainColor padding">                        
+                            <h1>Current Weather Conditions:</h1>
+                            <h5 id="cityTag">City</h5>
                             <h5 id="iconTag"></h5>
-                            <h5 id="tempTag"></h5>
-                            <h5 id="humidityTag"></h5>
-                            <h5 id="windSpeed"></h5>
-                            <h5 id="uvIndex"></h5>
+                            <h5 id="tempTag">Temperature</h5>
+                            <h5 id="humidityTag">Humidity</h5>
+                            <h5 id="windSpeed">Wind Speed</h5>
+                            <h5 id="uvIndex">UV Index</h5>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-8 mainTextColor">
-                        <h1>5 Day Forecast</h1>
-                        <div id="weeklyForecast"></div>
+                    <div class="col-sm-12 mainTextColor">
+                            <h1>5 Day Forecast:</h1>
+                            <div id="weeklyForecast"></div>
                     </div>
                 </div>
 
@@ -62,7 +70,9 @@
     </div>
 
 
-
+    <footer>
+        <div id="footerText">Made By Nicholas DeRissio</div>
+    </footer>
 
 
     

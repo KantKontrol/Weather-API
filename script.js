@@ -38,8 +38,6 @@ function getWeather(city){
         method: "GET"
     }).then(function(response){
 
-        console.log(response);
-
         weatherToday = response;
 
         let lat = response.coord.lat;
@@ -90,7 +88,6 @@ function getForecast(city){
 
 function createForecastCard(forecastData){
 
-
     let card = $("<div>").attr({"class": "card cusBorder mainColor"});
 
     let cardBody = $("<div>").addClass("card-body");
@@ -111,7 +108,6 @@ function createForecastCard(forecastData){
     cardBody.append(humidityText);
 
     $("#weeklyForecast").append(card);
-
 }
 
 function currentWeather(response, uvIndex, date){

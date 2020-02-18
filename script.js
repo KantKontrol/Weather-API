@@ -9,6 +9,11 @@ $(document).on("click", "#searchButton", function(){
     getWeather(city);
 });
 
+$(document).on("click", "#currentLocation", function(){
+
+    getLocation();
+});
+
 $(document).on("click", "#clearSearch", function(){
 
     clearSearches();
@@ -78,6 +83,8 @@ function getForecast(city){
         for(let i = 0;i < response.list.length;i+=8){
             createForecastCard(response.list[i]);
         }
+
+        $("#weatherData").css("display", "block");
     });
 }
 
@@ -161,3 +168,15 @@ function createSavedSearchs(searches){
     }
 
 }
+
+function getLocation() {
+    var queryURL = "https://freegeoip.app/json/";
+  
+    // Here we run our AJAX call to the GEO API
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+        getWeather(response.city);
+    });
+  }

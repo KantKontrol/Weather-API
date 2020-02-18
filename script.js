@@ -177,6 +177,7 @@ function getLocation() {
       url: queryURL,
       method: "GET"
     }).then(function (response) {
+        saveSearch(response.city);
         getWeather(response.city);
     });
   }

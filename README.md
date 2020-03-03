@@ -1,4 +1,3 @@
-
 # Weather-API ![alt](https://img.shields.io/badge/build-passing-brightgreen)
 
 ## Table of Contents
